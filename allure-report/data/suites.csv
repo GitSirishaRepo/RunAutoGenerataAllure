@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","16469","Investor Login successful upload","","Thu Sep 05 11:04:15 PDT 2024","passed","Thu Sep 05 11:04:32 PDT 2024","","Login Page Feature","Investor Login successful upload",""
+"","5687","Investor Validate Page Title","","Thu Sep 05 11:03:25 PDT 2024","passed","Thu Sep 05 11:03:31 PDT 2024","","Login Page Feature","Investor Validate Page Title",""
+"","38447","Investor Sign/Create  Successful","","Thu Sep 05 11:03:37 PDT 2024","passed","Thu Sep 05 11:04:15 PDT 2024","","Login Page Feature","Investor Sign/Create  Successful",""
+"","5880","Investor Login successful","","Thu Sep 05 11:03:31 PDT 2024","passed","Thu Sep 05 11:03:37 PDT 2024","","Login Page Feature","Investor Login successful",""
