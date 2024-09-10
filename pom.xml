@@ -152,15 +152,15 @@
       <includes>
         <include>**/*TestRunner.java</include>
       </includes>
-      <systemPropertyVariables>
-        <cucumber.options>--tags @smoke</cucumber.options>
-      </systemPropertyVariables>
+<!--      <systemPropertyVariables>-->
+<!--        <cucumber.options>&#45;&#45;tags @smoke</cucumber.options>-->
+<!--      </systemPropertyVariables>-->
 
       <testFailureIgnore>false</testFailureIgnore>
       <argLine>
         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
         -Dcucumber.options="--plugin io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
-       -Dcucumber.options="--tags @smokeTest"
+<!--       -Dcucumber.options="&#45;&#45;tags @smokeTest3"-->
       </argLine>
     </configuration>
     <dependencies>

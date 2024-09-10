@@ -32,6 +32,7 @@ public class OptionsManager {
         }
 
         if (Boolean.parseBoolean(prop.getProperty("remote"))) {
+            System.out.println("Browserr####### CHROME");
             co.setCapability("browserName", "chrome");
             co.setBrowserVersion(prop.getProperty("browserversion").trim());
 

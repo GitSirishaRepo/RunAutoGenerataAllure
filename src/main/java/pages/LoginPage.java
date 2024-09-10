@@ -20,17 +20,21 @@ public class LoginPage {
     private final WebDriver driver;
     private final ElementUtil eleUtil;
     private final EqBrikOTP eqbrikOtp;
-    protected By singInTitle= By.xpath("//h1[@role='heading']");
+    protected By singInTitle= By.xpath("//h2[@aria-level='1']");
+//            "//h1[@role='heading']");
     protected By verifyIdentityButton= By.xpath("//button[text()='Verify Identity']");
     protected By FormLabel =By.xpath("//form[@aria-label='Sign in with your email address']");
-    protected By Email= By.xpath("//input[@id='email']");
+    protected By Email= By.xpath("//input[@id='signInName']");
+//            "//input[@id='email']");
     protected By Password= By.xpath("//input[@id='password']");
     protected By Submit= By.xpath("//button[@id='next']");
     protected By forgotPassword = By.id("forgotPassword");
     protected By signUpNowLink= By.xpath("//a[@id='createAccount']");
     protected By emailID= By.id("email");
-    protected By sendOTPButton=By.id("emailVerificationControl_but_send_code");
-    protected By emailVerificationCode=By.id("emailVerificationCode");
+    protected By sendOTPButton=By.id("email_ver_but_send");
+//            "emailVerificationControl_but_send_code");
+    protected By emailVerificationCode=By.id("email_ver_input");
+//            "emailVerificationCode");
     protected By buttonVerifyCode=By.id("emailVerificationControl_but_verify_code");//
     protected By buttonChangeEmail=By.id("emailVerificationControl_but_change_claims");
     protected String OTP;
@@ -51,15 +55,15 @@ public class LoginPage {
     }
 
     public String getPageTitle(){
-
+        WebElement title;
+        System.out.println(eleUtil.getElement(singInTitle).getText());
         return eleUtil.getElement(singInTitle).getText();
     }
 
 
     public void enterCredentials(String userName, String pwd) {
-
-        eleUtil.doSendKeys(emailID, userName);
-        eleUtil.doSendKeys(Password, pwd);
+        eleUtil.doSendKeys(Email, userName, TimeWait.WAIT5SECONDS);
+        eleUtil.doSendKeys(Password, pwd, TimeWait.WAIT5SECONDS);
     }
 
     public void clickSignInButton(){
@@ -67,7 +71,7 @@ public class LoginPage {
     }
 
     public void waitForPageToLoad(){
-        eleUtil.waitForElementVisible(singInTitle, 50000);
+        eleUtil.waitForElementVisible(singInTitle, 5000);
     }
 
     public void clickSignIn() {
@@ -120,5 +124,10 @@ public class LoginPage {
         popupload.sendKeys(projectPath+filePath);
     eleUtil.doClick(uploadPhotoFileConfirm,TimeWait.WAIT5SECONDS);
 
+    }
+
+    public void waitForPageLoadNEW() {
+    System.out.println("IN NEW WAIT");
+        eleUtil.waitForPageLoadNEW();
     }
 }
