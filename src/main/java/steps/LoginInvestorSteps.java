@@ -42,7 +42,8 @@ public class LoginInvestorSteps {
     }
     @Given("wait for page to load")
     public void wait_for_page_to_load() throws InterruptedException {
-        Thread.sleep(200);
+        loginPage.waitForPageLoadNEW();
+//       Thread.sleep(5000);
     }
     @When("enter username {string} and password {string}")
     public void enter_username_and_password(String userName, String passWord) {
@@ -59,7 +60,9 @@ public class LoginInvestorSteps {
     @Then("page title should be {string}")
     public void pageTitleShouldBe(String arg0) {
         String ActualTitle= loginPage.getPageTitle();
-        Assert.assertEquals("Sign in", ActualTitle);
+        System.out.println("Actual title"+ ActualTitle);
+        Assert.assertEquals("Log-in", ActualTitle);
+//        Assert.assertEquals("Log-in", ActualTitle);
     }
 
     @When("user clicks on Sign in link")
@@ -111,5 +114,9 @@ public class LoginInvestorSteps {
     @And("upload and VerifyIdentity")
     public void uploadAndVerifyIdentity() {
         loginPage.uploadAndVerifyIdentity();
+    }
+
+    @And("go to main page")
+    public void goToMainPage() {
     }
 }

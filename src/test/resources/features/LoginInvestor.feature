@@ -4,9 +4,9 @@ Feature:  Login Page Feature
   Scenario: Investor Validate Page Title
     Given user is on Investor Login page
     And wait for page to load
-  Then page title should be "Sign in"
+  Then page title should be "Log-in"
 
-  @smokeTest
+  @Regression
   Scenario Outline: Investor Login successful
     Given user is on Investor Login page
     And wait for page to load
@@ -16,7 +16,7 @@ Feature:  Login Page Feature
       | string                            | string2         |
       | "bhargavi.sponsor+qa26@gmail.com" | "Lsnworks@2022" |
 
-  @smokeTest
+  @Sanity
   Scenario: Investor Sign/Create  Successful
 
       Given user is on Investor Login page
@@ -28,7 +28,7 @@ Feature:  Login Page Feature
       And waits for some time
       And clicks verify button
 
-  @smokeTest
+ @Regression @smokeTest
   Scenario Outline: Investor Login successful upload
     Given user is on Investor Login page
     And wait for page to load
@@ -36,6 +36,7 @@ Feature:  Login Page Feature
     When click on Sign in button
     Then wait for Verify Identity
     And upload and VerifyIdentity
+
 
     Examples:
       | string                          | string2        |
