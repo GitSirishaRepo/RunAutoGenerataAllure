@@ -1,12 +1,12 @@
 @UI
 Feature:  Login Page Feature
- @smokeTest
+   @smokeTest
   Scenario: Investor Validate Page Title
     Given user is on Investor Login page
     And wait for page to load
   Then page title should be "Log-in"
 
-  @Regression
+  @Regression  @Sanity
   Scenario Outline: Investor Login successful
     Given user is on Investor Login page
     And wait for page to load
@@ -28,7 +28,7 @@ Feature:  Login Page Feature
       And waits for some time
       And clicks verify button
 
- @Regression @smokeTest
+ @Regression  @Sanity
   Scenario Outline: Investor Login successful upload
     Given user is on Investor Login page
     And wait for page to load
