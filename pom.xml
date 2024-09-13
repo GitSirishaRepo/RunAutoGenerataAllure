@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
@@ -20,58 +20,58 @@
     <!--    <cucumber-jvm.version>7.18.1</cucumber-jvm.version>-->
   </properties>
 
-    <dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>io.qameta.allure</groupId>
-          <artifactId>allure-bom</artifactId>
-          <version>2.25.0</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.junit</groupId>
-          <artifactId>junit-bom</artifactId>
-          <version>5.10.1</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-      </dependencies>
-    </dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-bom</artifactId>
+        <version>2.25.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.10.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-<!-- ##################################################################################   -->
-    <!-- ##################################################################################   -->
-    <!-- ################                     CUCUMBER                     #############   -->
-    <!-- ##################################################################################   -->
-    <!-- ##################################################################################   -->
+  <!-- ##################################################################################   -->
+  <!-- ##################################################################################   -->
+  <!-- ################                     CUCUMBER                     #############   -->
+  <!-- ##################################################################################   -->
+  <!-- ##################################################################################   -->
   <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
- <dependencies>
-  <dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-java</artifactId>
-    <version>6.11.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>6.11.0</version>
 
-  </dependency>
-
-
-  <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
-  <dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-core</artifactId>
-    <version>6.11.0</version>
+    </dependency>
 
 
-  </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-core</artifactId>
+      <version>6.11.0</version>
 
 
-  <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-  <dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-junit</artifactId>
-    <version>6.11.0</version>
+    </dependency>
 
-    <scope>test</scope>
-  </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>6.11.0</version>
+
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -84,18 +84,18 @@
 
 
 
-  <!-- ##################################################################################   -->
-  <!-- ##################################################################################   -->
-  <!-- ################                     ALLURE                     #############   -->
-  <!-- ##################################################################################   -->
-  <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
+    <!-- ################                     ALLURE                     #############   -->
+    <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
 
 
     <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-cucumber6-jvm</artifactId>
-<!--      <version>2.29.0</version>-->
+      <!--      <version>2.29.0</version>-->
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4 -->
@@ -109,10 +109,10 @@
 
 
     <!-- ##################################################################################   -->
-  <!-- ##################################################################################   -->
-  <!-- ################                     SELENIUM                     #############   -->
-  <!-- ##################################################################################   -->
-  <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
+    <!-- ################                     SELENIUM                     #############   -->
+    <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
@@ -124,10 +124,10 @@
 
 
     <!-- ##################################################################################   -->
-  <!-- ##################################################################################   -->
-  <!-- ################                     EXTRAS                     #############   -->
-  <!-- ##################################################################################   -->
-  <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
+    <!-- ################                     EXTRAS                     #############   -->
+    <!-- ##################################################################################   -->
+    <!-- ##################################################################################   -->
 
     <dependency>
       <groupId>com.sun.mail</groupId>
@@ -140,46 +140,37 @@
       <version>4.13.2</version>
       <scope>compile</scope>
     </dependency>
-
-
   </dependencies>
 
   <build>
-  <plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <includes>
+            <include>**/*TestRunner.java</include>
+          </includes>
+          <!--      <systemPropertyVariables>-->
+          <!--        <cucumber.options>&#45;&#45;tags @smoke</cucumber.options>-->
+          <!--      </systemPropertyVariables>-->
 
-  <plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-surefire-plugin</artifactId>
-  <version>3.1.2</version>
-    <configuration>
-
-      <goal> </goal>
-      <includes>
-        <include>**/*TestRunner.java</include>
-
-      </includes>
-     <!-- <systemPropertyVariables>
-        <cucumber.options>&#45;&#45;tags @Sanity</cucumber.options>
-      </systemPropertyVariables>
--->
-      <testFailureIgnore>false</testFailureIgnore>
-      <argLine>
-        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-        -Dcucumber.options="--plugin io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
-<!--       -Dcucumber.options="&#45;&#45;tags=@Sanity"-->
-      </argLine>
-    </configuration>
-    <dependencies>
-      <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjweaver</artifactId>
-        <version>${aspectj.version}</version>
-      </dependency>
-    </dependencies>
-
-  </plugin>
-
-
-  </plugins>
+          <testFailureIgnore>false</testFailureIgnore>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            -Dcucumber.options="--plugin io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
+            <!--       -Dcucumber.options="&#45;&#45;tags @smokeTest3"-->
+          </argLine>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
   </build>
 </project>
