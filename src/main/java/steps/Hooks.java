@@ -27,9 +27,11 @@ import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import utils.DataUtility;
+import utils.DirectoryDelete;
 import utils.ElementUtil;
 import utils.EqBrikOTP;
 
+import java.io.File;
 import java.util.Properties;
 
 public class Hooks {
@@ -41,11 +43,22 @@ public class Hooks {
     private ElementUtil eleUtil;
     private EqBrikOTP eqBrikOTP;
     private DataUtility dataUtil;
+    private DirectoryDelete directoryDelete;
 
     @Before
     public void setUp() {
         df = new DriverFactory();
         prop = df.initProp();
+        directoryDelete= new DirectoryDelete();
+        String filepath = "allure-results";
+        File file = new File(filepath);
+
+        // call deleteDirectory function to delete
+        // subdirectory and files
+        directoryDelete.deleteDirectory(file);
+
+        // delete main GFG folder
+        file.delete();
 
 //        String browserName = System.getProperty("browser", prop.getProperty("browser", "chrome"));
 //        String browserVersion = System.getProperty("browserversion", prop.getProperty("browserversion", ""));
